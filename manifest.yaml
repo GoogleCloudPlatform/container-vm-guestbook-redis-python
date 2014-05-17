@@ -1,0 +1,12 @@
+version: v1beta1
+containers:
+  - name: redis
+    image: dockerfile/redis
+
+  - name: guestbook
+    image: jbeda/redis-guestbook
+    ports:
+      - name: www
+        hostPort: 80
+        containerPort: 80
+
