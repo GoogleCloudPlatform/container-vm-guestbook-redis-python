@@ -1,6 +1,6 @@
-# ContainerVM Guestbook
+# Container VM Guestbook
 
-This is a sample on how to use ContainerVMs for a simple guestbook.
+This is a sample on how to use container VMs for a simple guestbook.
 
 There are 2 containers that get deployed into one VM:
 
