@@ -52,7 +52,7 @@ gcloud compute instances delete --quiet --zone=us-central1-a ${VM_NAME}
 
   1. Have Docker installed on a development workstation.  You can use a GCE instance for this.  See instructions [here](http://docs.docker.io/installation/google/).
   1. Create an account on [index.docker.io](https://index.docker.io) and run `docker login`.
-  1. Build your application with `docker build -t <username>/redis-guestbook`.
-  1. Push your application with `docker push <username>/redis-guestbook`.
+  1. Build your application with `docker build -t <username>/guestbook-python-redis .`.
+  1. Push your application with `docker push <username>/guestbook-python-redis`.
   1. Modify `manifest.yaml` to refer to your new application.
   1. Start up a new VM with `start-containers.sh` or reload you rexisting one with `restart-containers.sh`.
