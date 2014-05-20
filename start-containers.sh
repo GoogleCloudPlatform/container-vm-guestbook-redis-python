@@ -5,11 +5,11 @@ set -e
 source config.sh
 
 echo
-echo "Opening firewall for containervm-guestbook"
+echo "Opening firewall for tcp:80 to ${VM_NAME}"
 gcloud compute firewalls create ${VM_NAME}-www --allow tcp:80 --target-tags ${VM_NAME}
 
 echo
-echo "Creating containervm-guestbook VM"
+echo "Creating VM: ${VM_NAME}"
 gcloud compute instances create ${VM_NAME} \
   --tags ${VM_NAME} \
   --zone ${ZONE}  --machine-type ${MACHINE_TYPE} \

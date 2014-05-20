@@ -1,6 +1,6 @@
 # This file holds common parameters for the VM start/stop scripts
 
-VM_NAME=containervm-guestbook
+VM_NAME=container-vm-guestbook
 ZONE=us-central1-a
 MACHINE_TYPE=n1-standard-1
 
@@ -18,7 +18,7 @@ function wait_vm_ready() {
     done
 
     echo
-    echo "ContainerVM Guestbook is now up and running"
+    echo "Container VM Guestbook is now up and running"
     echo
     echo "  http://${VM_IP}"
     echo
