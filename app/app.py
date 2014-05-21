@@ -11,16 +11,16 @@ redis_host=os.getenv('REDIS_PORT_6379_TCP_ADDR', '127.0.0.1')
 redis_port=int(os.getenv('REDIS_PORT_6379_TCP_PORT', '6379'))
 app.redis = redis.StrictRedis(host=redis_host, port=redis_port, db=0)
 
-# The default redis config will wait 15 min to save a small number of
-# changes.  Instead of using the snapshot/dump stuff, we put redis into
-# append mode.  For production environments, users should study and
-# understand the redis persistence model.
-app.redis.config_set('appendonly', 'yes')
+# Be super aggressive about saving for the development environment.
+# This says save every second if there is at least 1 change.  If you use
+# redis in production you'll want to read up on the redis persistence
+# model.
+app.redis.config_set('save', '1 1')
 
 @app.route('/', methods=['GET', 'POST'])
 def main_page():
     if request.method == 'POST':
-        app.redis.lpush('entries', request.form['entry'])
+        app.redis.lpush('entries', request.form['entry'])        
         return redirect(url_for('main_page'))
     else:
         entries = app.redis.lrange('entries', 0, -1)
