@@ -7,7 +7,7 @@ from flask import Response
 
 app = Flask(__name__)
 app.debug = True
-app.redis = redis.StrictRedis(host='localhost', port='6379', db=0)
+app.redis = redis.StrictRedis(host='127.0.0.1', port='6379', db=0)
 
 # Be super aggressive about saving for the development environment.
 # This says save every second if there is at least 1 change.  If you use
