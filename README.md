@@ -1,6 +1,6 @@
 # Container VM Guestbook
 
-This is a sample on how to use container VMs for a simple guestbook.
+This is a sample on how to use container VMs for a simple guestbook.  You can read more about containers on GCE [here](https://developers.google.com/compute/docs/containers).
 
 There are 2 containers that get deployed into one VM:
 
