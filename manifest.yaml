@@ -1,0 +1,17 @@
+version: v1beta1
+containers:
+  - name: redis
+    image: dockerfile/redis
+    volumeMounts:
+      - name: redis-data
+        path: /data
+
+  - name: guestbook
+    image: google/guestbook-python-redis
+    ports:
+      - name: www
+        hostPort: 80
+        containerPort: 80
+
+volumes:
+  - name: redis-data
