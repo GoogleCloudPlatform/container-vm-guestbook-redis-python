@@ -1,10 +1,10 @@
-version: v1beta1
+version: v1beta2
 containers:
   - name: redis
     image: dockerfile/redis
     volumeMounts:
       - name: redis-data
-        path: /data
+        mountPath: /data
 
   - name: guestbook
     image: google/guestbook-python-redis
