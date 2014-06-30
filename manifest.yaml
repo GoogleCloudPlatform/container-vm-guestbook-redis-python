@@ -1,4 +1,5 @@
 version: v1beta2
+id: container-vm-guestbook
 containers:
   - name: redis
     image: dockerfile/redis
