@@ -19,7 +19,7 @@ gcloud compute firewalls create ${VM_NAME}-www --allow tcp:80 --target-tags ${VM
 gcloud compute instances create ${VM_NAME} \
   --tags ${VM_NAME} \
   --zone us-central1-a  --machine-type n1-standard-1 \
-  --image projects/google-containers/global/images/containervm-v20140514 \
+  --image https://www.googleapis.com/compute/v1/projects/google-containers/global/images/container-vm-v20140624 \
   --metadata-from-file google-container-manifest=manifest.yaml
 ```
 
