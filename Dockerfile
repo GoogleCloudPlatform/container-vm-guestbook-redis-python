@@ -1,14 +1,9 @@
-FROM google/debian:wheezy
+FROM micktwomey/python3.4:latest
 MAINTAINER Joe Beda <joe.github@bedafamily.com>
 
-RUN apt-get update && \
-    apt-get install -y python-dev python-pip && \
-    pip install redis flask
+RUN pip3 install dc-campaign-finance-data
 
-ADD app /app
 
-EXPOSE 80
-
-CMD [ "python", "/app/app.py" ]
+CMD [ "dc-campaign-finance-data", "committees" ]
 
 
