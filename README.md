@@ -4,8 +4,8 @@ This is a sample on how to use container VMs for a simple guestbook.  You can re
 
 There are 2 containers that get deployed into one VM:
 
-  * A Redis database.  This is uses the [dockerfile/redis](https://index.docker.io/u/dockerfile/redis/) container image.
-  * An simple python application (based on Flask) that implements the guestbook. The source is included at the root of this repo and is pushed to [google/guestbook-python-redis](https://index.docker.io/u/google/guestbook-python-redis/) on the Docker Index.
+  * A Redis database.  This uses the [dockerfile/redis](https://index.docker.io/u/dockerfile/redis/) container image.
+  * A simple python application (based on Flask) that implements the guestbook. The source is included at the root of this repo and is pushed to [google/guestbook-python-redis](https://index.docker.io/u/google/guestbook-python-redis/) on the Docker Index.
 
 ## Launching
 To launch simply have `gcloud compute` configured (see the [Cloud SDK](https://developers.google.com/cloud/sdk/)) with a GCE enabled project and your credentials.  There is no need to have Docker installed on your workstation/development machine.
