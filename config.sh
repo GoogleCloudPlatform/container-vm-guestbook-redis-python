@@ -5,7 +5,7 @@ ZONE=us-central1-a
 MACHINE_TYPE=n1-standard-1
 
 function wait_vm_ready() {
-    VM_IP=$(gcloud compute instances get ${VM_NAME} --format=text | grep natIP | cut -f 2 -d ':' | tr -d ' ')
+    VM_IP=$(gcloud compute instances describe ${VM_NAME} --format=text | grep natIP | cut -f 2 -d ':' | tr -d ' ')
     echo
     echo "Waiting for VM to be ready on ${VM_IP}."
     echo

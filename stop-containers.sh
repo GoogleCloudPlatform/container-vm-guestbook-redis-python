@@ -6,7 +6,7 @@ source config.sh
 
 echo
 echo "Closing firewall for ${VM_NAME}"
-gcloud compute firewalls delete --quiet ${VM_NAME}-www
+gcloud compute firewall-rules delete --quiet ${VM_NAME}-www
 
 echo
 echo "Deleting VM: ${VM_NAME}"
