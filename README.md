@@ -19,7 +19,7 @@ gcloud compute firewalls create ${VM_NAME}-www --allow tcp:80 --target-tags ${VM
 gcloud compute instances create ${VM_NAME} \
   --tags ${VM_NAME} \
   --zone us-central1-a  --machine-type n1-standard-1 \
-  --image https://www.googleapis.com/compute/v1/projects/google-containers/global/images/container-vm-v20140624 \
+  --image https://www.googleapis.com/compute/v1/projects/google-containers/global/images/container-vm \
   --metadata-from-file google-container-manifest=manifest.yaml
 ```
 
@@ -51,8 +51,15 @@ gcloud compute instances delete --quiet --zone=us-central1-a ${VM_NAME}
 ## Modifying the application
 
   1. Have Docker installed on a development workstation.  You can use a GCE instance for this.  See instructions [here](http://docs.docker.io/installation/google/).
-  1. Create an account on [index.docker.io](https://index.docker.io) and run `docker login`.
-  1. Build your application with `docker build -t <username>/guestbook-python-redis .`.
-  1. Push your application with `docker push <username>/guestbook-python-redis`.
-  1. Modify `manifest.yaml` to refer to your new application.
+  1. Build your application with (this project should match where you plan to create the VM):
+  
+     ```
+     docker build -t gcr.io/<your-project-id>/guestbook-python-redis .
+	 ```
+  1. Push your application to the [Google Container Registry](https://gcr.io) with:
+  
+     ```
+	 gcloud preview docker push gcr.io/<your-project-id>/guestbook-python-redis
+	 ```
+  1. Modify `manifest.yaml` to refer to use `gcr.io/<your-project-id>/guestbook-python-redis` in place of `google/guestbook-python-redis`.
   1. Start up a new VM with `start-containers.sh` or reload you rexisting one with `restart-containers.sh`.
